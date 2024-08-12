@@ -23,7 +23,7 @@ credentials_json = {
 credentials = ServiceAccountCredentials.from_json_keyfile_dict(credentials_json, ['https://spreadsheets.google.com/feeds'])
 gc = gspread.authorize(credentials)
 
-google_sheet_url = "https://docs.google.com/spreadsheets/d/1FYRwfiVx_NT1w-kR8ZhJ-JPoek1rwmrCw8Em-tlCKz8/edit#gid=0"
+google_sheet_url = "https://docs.google.com/spreadsheets/d/1C0_R7oF9SJhPmaiX6g40PL6IL5ki8axraRyhSl0uUtk/edit?gid=1533873629#gid=1533873629"
 sh = gc.open_by_url(google_sheet_url)
 worksheet1 = sh.get_worksheet(0)
 all_values = worksheet1.get_all_values()
