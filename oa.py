@@ -68,7 +68,7 @@ class OA:
             data_with_header = [columns] + df.values.tolist()
             worksheet = sh.get_worksheet(0)
             data = df.values.tolist()
-            worksheet.update('A1', data_with_header)
+            #worksheet.update('A1', data_with_header)
             self.df = df
             
             st.write("Excel sheet uploaded to Google Sheet successfully!")
