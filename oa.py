@@ -7,6 +7,7 @@ import numpy as np
 from io import StringIO
 import pandas as pd
 from oauth2client.service_account import ServiceAccountCredentials
+from google.oauth2.service_account import Credentials
 import json
 
 # Access Google credentials from Streamlit secrets
