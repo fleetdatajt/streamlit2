@@ -13,9 +13,21 @@ import json
 # Access Google credentials from Streamlit secrets
 google_credentials = json.loads(st.secrets["google_credentials"]["credentials_json"])
 
-# Authenticate with Google API using the credentials
-credentials = Credentials.from_service_account_info(google_credentials)
+# Define the required OAuth scopes for Google Sheets access
+scopes = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.readonly"  # Add more scopes if needed
+]
+
+# Create credentials using the service account and include the scopes
+credentials = Credentials.from_service_account_info(
+    google_credentials,
+    scopes=scopes  # Pass the scopes here
+)
+
+# Authorize the client using the credentials
 gc = gspread.authorize(credentials)
+
 
 google_sheet_url = "https://docs.google.com/spreadsheets/d/1C0_R7oF9SJhPmaiX6g40PL6IL5ki8axraRyhSl0uUtk/edit?gid=1533873629#gid=1533873629"
 sh = gc.open_by_url(google_sheet_url)
